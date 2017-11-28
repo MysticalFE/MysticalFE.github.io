@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Hexo</title>
+  <title>vue项目中对axios的二次封装 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="近来在使用vue重构公司m站时，使用了axios来进行数据的请求，由于项目的需要，对axios进行了二次封装，点击进入axios123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525">
+<meta name="keywords" content="vue,axios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue项目中对axios的二次封装">
+<meta property="og:url" content="http://yoursite.com/2017/10/16/vue项目中对axios的二次封装/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="近来在使用vue重构公司m站时，使用了axios来进行数据的请求，由于项目的需要，对axios进行了二次封装，点击进入axios1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465//引入axiosimport">
+<meta property="og:updated_time" content="2017-10-16T06:44:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="vue项目中对axios的二次封装">
+<meta name="twitter:description" content="近来在使用vue重构公司m站时，使用了axios来进行数据的请求，由于项目的需要，对axios进行了二次封装，点击进入axios1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465//引入axiosimport">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,36 +154,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vue项目中对axios的二次封装" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/16/vue项目中对axios的二次封装/" class="archive-article-date">
-  	<time datetime="2017-10-16T05:43:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/16/vue项目中对axios的二次封装/">vue项目中对axios的二次封装</a>
+    <h1 class="article-title" itemprop="name">
+      vue项目中对axios的二次封装
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/10/16/vue项目中对axios的二次封装/" class="archive-article-date">
+  	<time datetime="2017-10-16T05:43:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="近来在使用vue重构公司m站时，使用了axios来进行数据的请求，由于项目的需要，对axios进行了二次封装，点击进入axios"><a href="#近来在使用vue重构公司m站时，使用了axios来进行数据的请求，由于项目的需要，对axios进行了二次封装，点击进入axios" class="headerlink" title="近来在使用vue重构公司m站时，使用了axios来进行数据的请求，由于项目的需要，对axios进行了二次封装，点击进入axios"></a>近来在使用vue重构公司m站时，使用了axios来进行数据的请求，由于项目的需要，对axios进行了二次封装，<a href="http://github.com/axios/axios" title="点击进入axios" target="_blank" rel="noopener">点击进入axios</a></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入axios</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cancel ,promiseArr = &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken;</span><br><span class="line"><span class="comment">//请求拦截器</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//发起请求时，取消掉当前正在进行的相同请求</span></span><br><span class="line">    <span class="keyword">if</span> (promiseArr[config.url]) &#123;</span><br><span class="line">        promiseArr[config.url](<span class="string">'操作取消'</span>)</span><br><span class="line">        promiseArr[config.url] = cancel</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        promiseArr[config.url] = cancel</span><br><span class="line">    &#125;</span><br><span class="line">      <span class="keyword">return</span> config</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//响应拦截器</span></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(error.response)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">axios.defaults.baseURL = <span class="string">'/api'</span></span><br><span class="line"><span class="comment">//设置默认请求头</span></span><br><span class="line">axios.defaults.headers = &#123;</span><br><span class="line">    <span class="string">'X-Requested-With'</span>: <span class="string">'XMLHttpRequest'</span></span><br><span class="line">&#125;</span><br><span class="line">axios.defaults.timeout = <span class="number">10000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">//get请求</span></span><br><span class="line">    get (url,param) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123;</span><br><span class="line">        axios(&#123;</span><br><span class="line">          method: <span class="string">'get'</span>,</span><br><span class="line">          url,</span><br><span class="line">          params: param,</span><br><span class="line">          cancelToken: <span class="keyword">new</span> CancelToken(<span class="function"><span class="params">c</span> =&gt;</span> &#123;</span><br><span class="line">            cancel = c</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          resolve(res)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">  <span class="comment">//post请求</span></span><br><span class="line">    post (url,param) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123;</span><br><span class="line">        axios(&#123;</span><br><span class="line">          method: <span class="string">'post'</span>,</span><br><span class="line">          url,</span><br><span class="line">          data: param,</span><br><span class="line">          cancelToken: <span class="keyword">new</span> CancelToken(<span class="function"><span class="params">c</span> =&gt;</span> &#123;</span><br><span class="line">            cancel = c</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          resolve(res)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol>
+<li>为防止发起请求时，当前正在进行的相同请求，在请求拦截器中加入了hash判断，将相同请求url拦截</li>
+<li><p>将axios中get，post公共配置抽离出来</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.baseURL = &apos;/api&apos;</span><br><span class="line">//设置默认请求头</span><br><span class="line">axios.defaults.headers = &#123;</span><br><span class="line">    &apos;X-Requested-With&apos;: &apos;XMLHttpRequest&apos;</span><br><span class="line">&#125;</span><br><span class="line">axios.defaults.timeout = 10000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>get，post请求的封装<br>可能你会问，这里的axios返回的就是promise对象，为什么还要再次对get,post封装一次promise.因为我这边的话，在开发中使用async await会出现数据请求失败的情况，报的错就是返回的不是promise对象。(ps：可async await返回的就是promise呀,这个问题后续再搞一下)就直接return了一个promise对象，以避免上面的错误。下面是请求接口的一个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import req from &apos;../api/requestType&apos;</span><br><span class="line">/**</span><br><span class="line"> * 拼团详情</span><br><span class="line"> */</span><br><span class="line">export const groupDetail = param =&gt; &#123;</span><br><span class="line">    return req.get(&apos;/RestHome/GroupDetail&apos;,param)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>下面是数据的获取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">async getData() &#123;</span><br><span class="line">    const params = &#123;</span><br><span class="line">        TopCataID: 0,</span><br><span class="line">        pageNumber: this.pageNumber,</span><br><span class="line">        pageSize: this.pageSize</span><br><span class="line">    &#125;</span><br><span class="line">    const res = await groupList(params)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>到这里我们就简单的封装了一下适合自己项目的axios</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,19 +226,96 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/16/vue项目中对axios的二次封装/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
+
   
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -225,8 +338,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
